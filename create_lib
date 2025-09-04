@@ -1,0 +1,6 @@
+create_lib
+-use_technology_lib tech_lib_name : The -use_technology_lib tech_lib_name option is used to specify a particular library as the dedicated technology library, drawing technology definitions only from it rather than from others libraries that are also included in the list of reference libraries (the reference set).This prevents possible conflicts or confusion that can happen if technology definitions differ across libraries
+one way of specifying the technology for your project is allowed at a time: either by using -use_technology_lib or by using -technology, but not both together.
+To write the command using the -use_technology_lib option along with the -ref_libs option, you need to specify:
+The technology library name with -use_technology_lib.The list of reference libraries with -ref_libs.
+Ensure you do not use the -technology option at the same time.
