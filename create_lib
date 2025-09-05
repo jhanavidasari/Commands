@@ -4,3 +4,23 @@ one way of specifying the technology for your project is allowed at a time: eith
 To write the command using the -use_technology_lib option along with the -ref_libs option, you need to specify:
 The technology library name with -use_technology_lib.The list of reference libraries with -ref_libs.
 Ensure you do not use the -technology option at the same time.
+
+-scale_factor scale_factor:
+The scale factor tells how many database units make up one micron (1μm1μm) in the layout.
+Example: If the scale factor is 10,000, it means there are 10,000 database units in one micron.
+This makes each database unit equal to:
+1 dbu=1 μm10,000=0.1 nm
+1 dbu=10,0001 μm=0.1 nm 
+Using a fine scale factor (large number of dbu per micron) prevents rounding errors.
+
+-ref_libs ref_libs:
+In addition to pre built cell libraries, this option accepts physical source data such as physical libraries (which contain frame views of the cells), LEF files, and Milkyway libraries. The tool automatically builds cell libraries based on the physical source data.
+
+dont_set_current:
+This option in library creation means you create a new library but do not make it the “current active library” that the tool automatically works with after creation.
+Clear Explanation of Advantages:
+No automatic switching: The tool won’t abruptly switch your working context to the new library, so your current work or scripts are not disrupted.
+Better control: You can create multiple libraries first and then explicitly choose which one to work with, avoiding mistakes or accidental use of the wrong library.
+Safer automation: In scripted or automated flows, creating libraries without switching lets you prepare everything quietly before moving on.
+Workflow smoothness: It keeps your session stable and predictable, especially in complex projects where switching libraries frequently can cause confusion.
+
